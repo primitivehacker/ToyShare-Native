@@ -14,6 +14,10 @@ export class ProfileScreen extends Component {
             title="List a Toy"
             onPress={() => this.props.navigation.navigate('ToyCreate')}
           />
+          <Button
+            title='View my toys'
+            onPress={() => this.props.navigation.navigate('ToysListed')}
+          />
         </View>
       );
     }
