@@ -31,11 +31,13 @@ class ToyCreateScreen extends Component {
           style={styles.textinput}
           onChangeText={(price) => this.setState({price})}
           value={this.state.price}
+          placeholder={`price`}
         />
         <TextInput
           style={styles.textinput}
           onChangeText={condition => this.setState({condition})}
           value={this.state.condition}
+          placeholder={`condition`}
         />
         <Button
           onPress={() => this.handlePress()}
@@ -65,8 +67,3 @@ const mutation = gql`
 `;
 
 export default graphql(mutation)(ToyCreateScreen);
-
-export const ProfileStack = StackNavigator({
-  ToyCreate: { screen: ToyCreateScreen },
-  ToysListed: { screen: ToysListedScreen },
-})

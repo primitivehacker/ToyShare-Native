@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { View, Text, Button } from 'react-native';
 import { StackNavigator, TabNavigator } from 'react-navigation';
+
 import ToyCreateScreen from './ToyCreateScreen';
+import ToysListedScreen from './ToysListedScreen';
 
 export class ProfileScreen extends Component {
     render() {
@@ -20,4 +22,5 @@ export class ProfileScreen extends Component {
 export const ProfileStack = StackNavigator({
   Profile: { screen: ProfileScreen },
   ToyCreate: { screen: ToyCreateScreen },
+  ToysListed: { screen: ToysListedScreen },
 })

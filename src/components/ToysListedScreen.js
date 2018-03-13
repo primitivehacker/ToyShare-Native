@@ -10,34 +10,41 @@ import { StackNavigator } from 'react-navigation';
 class ToysListedScreen extends Component {
 
   renderPrice() {
-    return this.props.data.toys.map(toy => {
-      return (
-        <View key={toy.id}>
-          <Text>
-            {toy.price}
-          </Text>
-        </View>
-      );
-    });
+    return (
+      <View>
+        {this.props.data.toys.map((toy, index) => (
+          <View key={index}>
+            <Text>
+              {toy.price}
+            </Text>
+          </View>
+        ))}
+      </View>
+    )
   }
 
   renderCondition() {
-    return this.props.data.toys.map(toy => {
-      return (
-        <View key={toy.id}>
-          <Text>
-            {toy.condition}
-          </Text>
-        </View>
-      );
-    });
+    return (
+      <View>
+        {this.props.data.toys.map((toy, index) => (
+          <View key={index}>
+            <Text>
+              {toy.condition}
+            </Text>
+          </View>
+        ))}
+      </View>
+    )
   }
 
   render() {
+    if (this.props.data.loading) {
+      return null
+    }
+    console.log('listed screen props', this.props)
     return(
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <Text>My Listed Toys</Text>
-        //ToyCard
         <Text style={{paddingVertical: 30}}>Price</Text>
           <View>
             {this.renderPrice()}
@@ -52,6 +59,7 @@ const query = gql`
   {
     toys {
       id
+      price
       category
       sub_category
     }
