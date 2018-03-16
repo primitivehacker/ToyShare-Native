@@ -1,16 +1,13 @@
 import React from 'react';
 import { TabNavigator, TabBarBottom } from 'react-navigation';
-import { ProfileScreen, ProfileStack } from './ProfileScreen.js';
-import DiscoverScreen from './DiscoverScreen.js';
-import SavedScreen from './SavedScreen.js';
-import InboxScreen from './InboxScreen.js';
-import ToysScreen from './ToysScreen.js';
-import ToyCreateScreen from './ToyCreateScreen.js';
-import ToysListedScreen from './ToysListedScreen.js';
+import { ProfileScreen, ProfileStack } from './profile_tab/ProfileScreen.js';
+import DiscoverScreen from './discover_tab/DiscoverScreen.js';
+import SavedScreen from './saved_tab/SavedScreen.js';
+import InboxScreen from './inbox_tab/InboxScreen.js';
+import ToysScreen from './toys_tab/ToysScreen.js';
+import ToyCreateState from './profile_tab/ToyCreateState.js';
+import ToysListedScreen from './profile_tab/ToysListedScreen.js';
 import { Ionicons } from '@expo/vector-icons';
-
-
-
 
 const NavBar = TabNavigator(
   {
