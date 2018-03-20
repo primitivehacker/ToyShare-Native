@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 
@@ -14,6 +14,7 @@ class ToyList extends Component {
   }
 
   render() {
+    if (this.props.data.loading) { return <Text>Loading.... </Text>; }
     return (
       <View>
         {this.renderToys()}

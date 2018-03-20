@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import { View, Text, Image } from 'react-native';
+import { graphql } from 'react-apollo';
+import gql from 'graphql-tag';
+
 import Card from './Card';
 import CardSection from './CardSection';
 
+
 //do we have to import graphql here to access the query in 'props'?
-const ToyDetail = ({ toy }) => {
-  const { images, sub_category, price } = toy;
+const ToyDetail = ({ toys }) => {
+  const { images, sub_category, price } = toys;
 
   return (
     <Card>
@@ -36,4 +40,15 @@ const styles = {
   }
 };
 
-export default ToyDetail;
+const query = gql`
+  {
+    toys {
+      id
+      category
+      sub_category
+      price
+    }
+  }
+`;
+
+export default graphql(query)(ToyDetail);
