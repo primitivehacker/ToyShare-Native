@@ -13,13 +13,13 @@ export default class ToyCreateDetailsScreen extends Component {
         <TextInput
           style={styles.textinput}
           onChangeText={(price) => this.props.setState({price})}
-          value={this.state.price}
+          value={this.props.price}
           placeholder={`price`}
         />
         <TextInput
           style={styles.textinput}
           onChangeText={(condition) => this.props.setState({condition})}
-          value={this.state.condition}
+          value={this.props.condition}
           placeholder={`condition`}
         />
         <DatePickerIOS

@@ -52,6 +52,7 @@ const query = gql`
       id
       category
       sub_category
+      images
     }
   }
 `;
