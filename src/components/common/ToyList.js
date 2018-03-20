@@ -2,14 +2,15 @@ import React, { Component } from 'react';
 import { View } from 'react-native';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
+
 import ToyDetail from './ToyDetail.js';
 
 class ToyList extends Component {
 
   renderToys() {
-    return this.props.data.toys.map(toy =>
+    return this.props.data.toys.map(toy => {
       <ToyDetail key={toy.id} toy={toy} />
-    );
+    });
   }
 
   render() {
@@ -32,4 +33,4 @@ const query = gql`
   }
 `;
 
-export default graphql(query)(ToysList);
+export default graphql(query)(ToyList);

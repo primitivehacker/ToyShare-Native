@@ -4,7 +4,7 @@ import Card from './Card';
 import CardSection from './CardSection';
 
 //do we have to import graphql here to access the query in 'props'?
-const ToyDetail = ({ toy }) =>
+const ToyDetail = ({ toy }) => {
   const { images, sub_category, price } = toy;
 
   return (
