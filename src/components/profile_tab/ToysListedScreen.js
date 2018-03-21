@@ -41,7 +41,6 @@ class ToysListedScreen extends Component {
     if (this.props.data.loading) {
       return null
     }
-    console.log('listed screen props', this.props)
     return(
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <Text>My Listed Toys</Text>
@@ -61,6 +60,9 @@ const query = gql`
       id
       price
       condition
+      category_id
+      sub_category_id
+      images
     }
   }
 `;

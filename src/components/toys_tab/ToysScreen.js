@@ -50,8 +50,8 @@ const query = gql`
   {
     toys {
       id
-      category
-      sub_category
+      category_id
+      sub_category_id
       images
     }
   }

@@ -17,7 +17,6 @@ class ToyList extends Component {
     if (this.props.data.loading) {
       return null
     }
-    console.log('toys list props', this.props.data)
     return (
       <ScrollView>
         {this.renderToys()}
@@ -30,8 +29,8 @@ const query = gql`
   {
     toys {
       id
-      category
-      sub_category
+      category_id
+      sub_category_id
       price
     }
   }
