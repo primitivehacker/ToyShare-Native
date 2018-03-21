@@ -10,13 +10,12 @@ import Button from './Button.js';
 
 //do we have to import graphql here to access the query in 'props'?
 const ToyDetail = ({ toy }) => {
-  const { images, sub_category, price, images } = toy;
+  const { images, sub_category, price } = toy;
   const {
     imageStyle,
     headerContentStyle,
     imageContainerStyle,
     headerTextStyle,
-    imageStyle
   } = styles;
 
   return (

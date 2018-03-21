@@ -6,21 +6,18 @@ import gql from 'graphql-tag';
 import ToyDetail from './ToyDetail.js';
 
 class ToyList extends Component {
-  state = { toys: [] };
-
-  componentWillMount() {
-    this.props.data.toys
-    .then(response => this.setState({ toys: response.data }));
-  }
 
   renderToys() {
-    return this.state.toys.map(toy => {
+    return this.props.data.toys.map(toy => {
       <ToyDetail key={toy.id} toy={toy} />
     });
   }
 
   render() {
-    console.log(this.props.data);
+    if (this.props.data.loading) {
+      return null
+    }
+    console.log('toys list props', this.props.data)
     return (
       <ScrollView>
         {this.renderToys()}
