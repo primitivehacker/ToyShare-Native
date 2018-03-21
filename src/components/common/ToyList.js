@@ -1,24 +1,30 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { ScrollView, Text } from 'react-native';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 
 import ToyDetail from './ToyDetail.js';
 
 class ToyList extends Component {
+  state = { toys: [] };
+
+  componentWillMount() {
+    this.props.data.toys
+    .then(response => this.setState({ toys: response.data }));
+  }
 
   renderToys() {
-    return this.props.data.toys.map(toy => {
+    return this.state.toys.map(toy => {
       <ToyDetail key={toy.id} toy={toy} />
     });
   }
 
   render() {
-    if (this.props.data.loading) { return <Text>Loading.... </Text>; }
+    console.log(this.props.data);
     return (
-      <View>
+      <ScrollView>
         {this.renderToys()}
-      </View>
+      </ScrollView>
     );
   }
 }

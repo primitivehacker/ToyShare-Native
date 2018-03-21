@@ -5,25 +5,42 @@ import gql from 'graphql-tag';
 
 import Card from './Card';
 import CardSection from './CardSection';
+import Button from './Button.js';
 
 
 //do we have to import graphql here to access the query in 'props'?
-const ToyDetail = ({ toys }) => {
-  const { images, sub_category, price } = toys;
+const ToyDetail = ({ toy }) => {
+  const { images, sub_category, price, images } = toy;
+  const {
+    imageStyle,
+    headerContentStyle,
+    imageContainerStyle,
+    headerTextStyle,
+    imageStyle
+  } = styles;
 
   return (
     <Card>
       <CardSection>
-        <View>
+        <View style={imageContainerStyle}>
           <Image
-            style={styles.imageStyle}
+            style={imageStyle}
             source={{uri: images}}
           />
         </View>
-        <View style={styles.headerContentStyle}>
-          <Text>{sub_category}</Text>
+        <View style={headerContentStyle}>
+          <Text style={headerTextStyle}>{sub_category}</Text>
           <Text>{price}</Text>
         </View>
+      </CardSection>
+      <CardSection>
+        <Image
+          style={imageStyle}
+          source={{ uri: images }}
+        />
+      </CardSection>
+      <CardSection>
+        <Button />
       </CardSection>
     </Card>
   );
@@ -34,9 +51,23 @@ const styles = {
     flexDirection: 'column',
     justifyContent: 'space-around'
   },
+  headerTextStyle: {
+    fontSize: 18
+  },
   imageStyle: {
     height: 50,
     width: 50
+  },
+  imageContainerStyle: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginLeft: 10,
+    marginRight: 10
+  },
+  imageStyle: {
+    height: 300,
+    flex: 1,
+    width: null
   }
 };
 

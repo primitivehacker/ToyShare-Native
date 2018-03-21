@@ -15,7 +15,10 @@ export default class App extends React.Component {
   render() {
     return (
       <ApolloProvider client={client}>
+        //added the view tag but not sure if it should be here
+        <View style={{ flex: 1 }}>
           <NavBar />
+        </View>
       </ApolloProvider>
     );
   }
